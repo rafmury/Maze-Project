@@ -1,0 +1,138 @@
+# Maze Game Documentation
+
+## Introduction
+The Maze Game is a 3D game implemented using OpenGL and GLUT (OpenGL Utility Toolkit). The goal of the game is to navigate through a maze from the entrance to the exit while avoiding obstacles. The maze is randomly generated using the Kruskal algorithm, and the player can control their character to move within the maze.
+
+## Table of Contents
+1. [Header Files](#header-files)
+2. [Structures](#structures)
+3. [Global Variables](#global-variables)
+4. [Functions](#functions)
+5. [Game Elements](#game-elements)
+6. [Controls](#controls)
+7. [Lighting and Display](#lighting-and-display)
+
+## Header Files
+The code includes the following header files:
+- `<stdio.h>`: Standard input and output functions.
+- `<stdlib.h>`: General utilities, including memory allocation.
+- `<time.h>`: Functions to manipulate time.
+- `<math.h>`: Mathematical functions.
+- `<GL/glut.h>`: OpenGL Utility Toolkit for graphics rendering.
+
+## Structures
+### 1. Kruskal Structure
+```c
+typedef struct {
+    int** map;
+    int size;
+} Kruskal;
+```
+- `map`: 2D array representing the maze.
+- `size`: Size of the maze.
+
+### 2. Transversal Structure
+```c
+typedef struct {
+    int** map;
+    int mazeSize;
+    int** transMap;
+} Transversal;
+```
+- `map`: 2D array representing the maze.
+- `mazeSize`: Size of the maze.
+- `transMap`: 2D array representing the transversal map.
+
+## Global Variables
+- `myMaze`: Instance of the Kruskal structure representing the maze.
+- `myTran`: Instance of the Transversal structure representing the transversal map.
+- `Map`: 2D array representing the maze for display.
+- `TransMap`: 2D array representing the transversal map for display.
+- Various variables for player and enemy positions, rotation angles, and game settings.
+
+## Functions
+### 1. `doGenerate()`
+- Initializes the maze map with walls.
+- Calls the maze generation algorithm (not implemented in the provided code).
+
+### 2. `doTransit()`
+- Initializes the transversal map.
+- Calls the maze transition algorithm (not implemented in the provided code).
+
+### 3. `placeDoor()`
+- Places entrance and exit doors in the maze.
+
+### 4. `settingUp(int size)`
+- Initializes maze and transversal map based on the given size.
+- Calls `doGenerate()`, `placeDoor()`, and `doTransit()`.
+
+### 5. `myinit()`
+- Initializes OpenGL settings such as clear color, matrix mode, and perspective/orthographic projection.
+
+### 6. `drawBox()`
+- Draws a 3D box with specified dimensions and color.
+
+### 7. `drawNim()`
+- Draws the character Nim using boxes.
+
+### 8. `putMaterial()`
+- Sets the material properties for lighting.
+
+### 9. `drawPlayer()`
+- Draws the player character.
+
+### 10. `drawEnemy()`
+- Draws the enemy character.
+
+### 11. `setDisplay()`
+- Sets up the display matrix.
+
+### 12. `helperRoad(int xRoad, int yRoad)`
+- Draws a green road on the maze.
+
+### 13. `display()`
+- Renders the maze, player, enemy, Nim, and the transparent floor.
+
+### 14. `Timer(int iUnused)`
+- Timer function to control enemy movement.
+
+### 15. `nimAnimation()`
+- Animates the rotation of Nim.
+
+### 16. `input(unsigned char key, int x, int y)`
+- Handles keyboard input for various game controls.
+
+### 17. `mouse(int button, int state, int x, int y)`
+- Handles mouse input for Nim's rotation.
+
+### 18. `settingLight()`
+- Configures lighting settings.
+
+### 19. `specKey(int key, int x, int y)`
+- Handles special key input for camera movement in the third-person view.
+
+## Game Elements
+- **Maze**: Generated using Kruskal's algorithm.
+- **Player**: Can be controlled using WASD keys.
+- **Enemy**: Moves autonomously towards the exit door.
+- **Nim**: Character with rotating animation.
+- **Entrance and Exit Doors**: Marked in the maze.
+
+## Controls
+- **W, A, S, D**: Move the player character.
+- **Spacebar**: Toggle enemy movement.
+- **C**: Regenerate the maze.
+- **1-5**: Control lighting and environment settings.
+- **Mouse Left Click**: Rotate Nim around the x-axis.
+- **Mouse Middle Click**: Rotate Nim around the z-axis.
+- **Mouse Right Click**: Rotate Nim around the y-axis.
+- **V**: Toggle camera/view mode.
+- **P**: Switch player character type (sphere or cone).
+- **Arrow keys (when in view mode 2)**: Control camera movement.
+
+## Lighting and Display
+- Ambient, diffuse, and specular lighting.
+- Transparent floor.
+- Perspective and orthographic projection modes.
+- Maze transition and road visualization.
+- Day and night mode toggle.
