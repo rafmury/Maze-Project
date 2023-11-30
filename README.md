@@ -62,3 +62,6 @@ Run the compiled executable:
 Navigate through the maze, reach the entrance and exit doors, and enjoy the visual effects and animations. Adjust lighting and viewing modes for a different gaming experience.
 
 ## Contributors
+1. RAPHAEL KARIUKI
+2.Ridwan Abdullahi
+
