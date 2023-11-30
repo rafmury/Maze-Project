@@ -63,5 +63,5 @@ Navigate through the maze, reach the entrance and exit doors, and enjoy the visu
 
 ## Contributors
 1. RAPHAEL KARIUKI
-2.Ridwan Abdullahi
+2. Ridwan Abdullahi
 
